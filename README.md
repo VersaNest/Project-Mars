@@ -5,8 +5,6 @@ ProjectMars is a web-based application where users can create their account and 
 Only authorised users can access the application with valid Email and Password.
 
 
-The project was built using C#, Selenium WebDriver, and SpecFlow, focusing on automated testing for user interactions like adding, updating, and deleting languages and skills.
-
 **Features Implemented**
   - User Authentication - Login with valid credentials, Create new account, Remember Me functionality, Forgot password.
   - Profile management - Add, update, and delete fucntionalities for languages and skills
@@ -20,3 +18,4 @@ I have also implemented hooks file for before/after scenario and cleanup of lang
 
 **Notes:**
 Test cases for the festures are added in the excel file and uploaded.
+
