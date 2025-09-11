@@ -248,7 +248,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User able to register new account")]
         [NUnit.Framework.CategoryAttribute("NewUserLogin")]
-        [NUnit.Framework.TestCaseAttribute("johnsam@email.com", "john1234", "John", "Smith", null)]
+        [NUnit.Framework.TestCaseAttribute("davidjohn@email.com", "john1234", "John", "Smith", null)]
         public async System.Threading.Tasks.Task UserAbleToRegisterNewAccount(string email, string password, string firstName, string lastName, string[] exampleTags)
         {
             string[] @__tags = new string[] {

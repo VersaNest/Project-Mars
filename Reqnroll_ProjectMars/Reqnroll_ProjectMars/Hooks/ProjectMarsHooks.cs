@@ -56,15 +56,15 @@ namespace Reqnroll_ProjectMars.Hooks
                 var loginPage = new LoginPage(driver);
 
 
-                loginPage.signFromMain();
-                loginPage.userLogin(settings.Username, settings.Password);
+                loginPage.SignFromMain();
+                loginPage.UserLogin(settings.Username, settings.Password);
 
 
 
                 profilePage.WaitUntilLanguagesTabVisible();
                 profilePage.DeleteAllLanguages();
 
-                profilePage.clickSkillsTab();
+                profilePage.ClickSkillsTab();
                 profilePage.WaitUntilSkillsTabContentVisible();
                 profilePage.DeleteAllSkills();
 

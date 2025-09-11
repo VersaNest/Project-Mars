@@ -5,54 +5,57 @@ using Reqnroll_ProjectMars.Utilities;
 
 namespace Reqnroll_ProjectMars.Pages
 {
-    public class ProfilePage : BasePage
+    public class ProfilePage
     {
         private readonly IWebDriver newDriver;
+        private readonly BasePage basePage;
+
         IWebElement addNewButton;
 
-        public ProfilePage(IWebDriver driver) : base(driver)
+        public ProfilePage(IWebDriver driver)
         {
+            newDriver = driver;
+            basePage = new BasePage(driver);
         }
-
 
         //Methods related to Languages tab
 
-        public void clickLanguageTab()
+        public void ClickLanguageTab()
         {
-            IWebElement languagesTabInput = WaitUntilClickable(By.XPath("//a[contains(text(), 'Languages')]"));
+            IWebElement languagesTabInput = basePage.WaitUntilClickable(By.XPath("//a[contains(text(), 'Languages')]"));
             languagesTabInput.Click();
         }
 
-        public IWebElement? findAddButton()
+        public IWebElement? FindAddButton()
         {
             try
             {
-                return driver.FindElement(By.XPath("//div[contains(text(),'Add New')]"));
+                return newDriver.FindElement(By.XPath("//div[contains(text(),'Add New')]"));
             }
             catch (NoSuchElementException)
             {
                 return null; 
             }
         }
-        public void addNewLanguages(string langName, string langLevel)
+        public void AddNewLanguages(string langName, string langLevel)
         {
 
-            clickLanguageTab();
-            addNewButton = findAddButton();
+            
+            addNewButton = FindAddButton();
             addNewButton.Click();
 
-            IWebElement languageName = WaitUntilVisible(By.XPath("//input[@placeholder='Add Language']"));
+            IWebElement languageName = basePage.WaitUntilVisible(By.XPath("//input[@placeholder='Add Language']"));
             languageName.Clear();
             languageName.SendKeys(langName);
 
-            IWebElement levelDropdown = WaitUntilVisible(By.XPath("//select[@name='level']"));
+            IWebElement levelDropdown = basePage.WaitUntilVisible(By.XPath("//select[@name='level']"));
             SelectElement selectLevel = new SelectElement(levelDropdown);
             if (!string.IsNullOrWhiteSpace(langLevel))
             {
                 selectLevel.SelectByText(langLevel);
             }
 
-            IWebElement addButton = WaitUntilClickable(By.XPath("//input[@value='Add']"));
+            IWebElement addButton = basePage.WaitUntilClickable(By.XPath("//input[@value='Add']"));
             addButton.Click();
         }
 
@@ -61,9 +64,9 @@ namespace Reqnroll_ProjectMars.Pages
         {
             try
             {
-                return new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds)).Until(drv =>
+                return new WebDriverWait(newDriver, TimeSpan.FromSeconds(timeoutInSeconds)).Until(drv =>
                 {
-                    var button = findAddButton();
+                    var button = FindAddButton();
                     if (button != null && button.Displayed)
                     {                        
                         return true;
@@ -81,11 +84,11 @@ namespace Reqnroll_ProjectMars.Pages
         {
             try
             {
-                return new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds)).Until(drv =>
+                return new WebDriverWait(newDriver, TimeSpan.FromSeconds(timeoutInSeconds)).Until(drv =>
                 {
                     try
                     {
-                        var button = findAddButton();
+                        var button = FindAddButton();
                         return button == null || !button.Displayed;
                     }
                     catch (NoSuchElementException)
@@ -103,9 +106,9 @@ namespace Reqnroll_ProjectMars.Pages
                 return false;
             }
         }
-        public string updateLanguage(string langName, string newLang, string newLevel)
+        public string UpdateLanguage(string langName, string newLang, string newLevel)
         {
-            var rowsCollection = WaitUntilVisibleAll(By.XPath("//table/tbody/tr"));
+            var rowsCollection = basePage.WaitUntilVisibleAll(By.XPath("//table/tbody/tr"));
             var rows = rowsCollection.ToList();
 
 
@@ -118,18 +121,18 @@ namespace Reqnroll_ProjectMars.Pages
                     IWebElement updateIcon = rows[i].FindElement(By.XPath("./td[3]//i[contains(@class,'outline write')]"));
                     updateIcon.Click();
 
-                    IWebElement langTextBox = WaitUntilVisible(By.XPath("//input[@placeholder='Add Language']"));
+                    IWebElement langTextBox = basePage.WaitUntilVisible(By.XPath("//input[@placeholder='Add Language']"));
                     langTextBox.Clear();
                     langTextBox.SendKeys(newLang);
 
-                    IWebElement levelDropdown = WaitUntilVisible(By.XPath("//select[@name='level']"));
+                    IWebElement levelDropdown = basePage.WaitUntilVisible(By.XPath("//select[@name='level']"));
                     SelectElement selectLevel = new SelectElement(levelDropdown);
                     selectLevel.SelectByText(newLevel);
 
-                    IWebElement updateButton = WaitUntilClickable(By.XPath("//input[@value='Update']"));
+                    IWebElement updateButton = basePage.WaitUntilClickable(By.XPath("//input[@value='Update']"));
                     updateButton.Click();
 
-                    var updatedRows = WaitUntilVisibleAll(By.XPath("//table/tbody/tr")).ToList();
+                    var updatedRows = basePage.WaitUntilVisibleAll(By.XPath("//table/tbody/tr")).ToList();
                     IWebElement updatedLanguage = rows[i].FindElement(By.XPath("./td[1]"));
                     return updatedLanguage.Text;
                 }
@@ -137,10 +140,10 @@ namespace Reqnroll_ProjectMars.Pages
             return "Failed";
         }
 
-        public string deleteLanguage(string langName)
+        public string DeleteLanguage(string langName)
         {
 
-            var rowsCollection = WaitUntilVisibleAll(By.XPath("//table/tbody/tr"));
+            var rowsCollection = basePage.WaitUntilVisibleAll(By.XPath("//table/tbody/tr"));
             var rows = rowsCollection.ToList();
 
             for (int i = 0; i < rows.Count; i++)
@@ -158,35 +161,35 @@ namespace Reqnroll_ProjectMars.Pages
         }
 
 
-        public string checkDuplicateLanguage(string name, string level)
+        public string CheckDuplicateLanguage(string name, string level)
         {
-            return checkDuplicateInfo(name, level, By.XPath("//table/tbody/tr"));
+            return CheckDuplicateInfo(name, level, By.XPath("//table/tbody/tr"));
         }
 
 
         //Methods related to skills tab
 
 
-        public void clickSkillsTab()
+        public void ClickSkillsTab()
         {
-            IWebElement skillsTabInput = WaitUntilClickable(By.XPath("//a[@data-tab='second']"));
+            IWebElement skillsTabInput = basePage.WaitUntilClickable(By.XPath("//a[@data-tab='second']"));
             skillsTabInput.Click();
         }
 
-        public void addNewSkill(string skillName, string skillLevel)
+        public void AddNewSkill(string skillName, string skillLevel)
         {
-            clickSkillsTab();
+            
             WaitUntilSkillsTabContentVisible();
 
-            IWebElement addNewButton = WaitUntilClickable(By.XPath("//div[@data-tab='second']//div[contains(text(), 'Add New')]"));
+            IWebElement addNewButton = basePage.WaitUntilClickable(By.XPath("//div[@data-tab='second']//div[contains(text(), 'Add New')]"));
             addNewButton.Click();
 
 
-            IWebElement newSkill = WaitUntilVisible(By.XPath("//input[@placeholder='Add Skill']"));
+            IWebElement newSkill = basePage.WaitUntilVisible(By.XPath("//input[@placeholder='Add Skill']"));
             newSkill.Clear();
             newSkill.SendKeys(skillName);
 
-            IWebElement levelDropdown = WaitUntilVisible(By.XPath("//select[@name='level']"));
+            IWebElement levelDropdown = basePage.WaitUntilVisible(By.XPath("//select[@name='level']"));
             SelectElement selectLevel = new SelectElement(levelDropdown);
 
             if (!string.IsNullOrWhiteSpace(skillLevel))
@@ -194,14 +197,14 @@ namespace Reqnroll_ProjectMars.Pages
                 selectLevel.SelectByText(skillLevel);
             }
 
-            IWebElement addButton = WaitUntilClickable(By.XPath("//input[@value='Add']"));
+            IWebElement addButton = basePage.WaitUntilClickable(By.XPath("//input[@value='Add']"));
             addButton.Click();
         }
 
-        public string updateSkill(string oldSkillName, string newSkillName, string newSkillLevel)
+        public string UpdateSkill(string oldSkillName, string newSkillName, string newSkillLevel)
         {
 
-            var rowsCollection = WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr"));
+            var rowsCollection = basePage.WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr"));
             var rows = rowsCollection.ToList();
 
             for (int i = 0; i < rows.Count; i++)
@@ -213,18 +216,18 @@ namespace Reqnroll_ProjectMars.Pages
                     IWebElement updateIcon = rows[i].FindElement(By.XPath("./td[3]//i[contains(@class,'outline write')]"));
                     updateIcon.Click();
 
-                    IWebElement skillTextBox = WaitUntilVisible(By.XPath("//div[@data-tab='second']//input[@placeholder='Add Skill']"));
+                    IWebElement skillTextBox = basePage.WaitUntilVisible(By.XPath("//div[@data-tab='second']//input[@placeholder='Add Skill']"));
                     skillTextBox.Clear();
                     skillTextBox.SendKeys(newSkillName);
 
-                    IWebElement levelDropdown = WaitUntilVisible(By.XPath("//div[@data-tab='second']//select[@name='level']"));
+                    IWebElement levelDropdown = basePage.WaitUntilVisible(By.XPath("//div[@data-tab='second']//select[@name='level']"));
                     SelectElement selectLevel = new SelectElement(levelDropdown);
                     selectLevel.SelectByText(newSkillLevel);
 
-                    IWebElement updateButton = WaitUntilClickable(By.XPath("//div[@data-tab='second']//input[@value='Update']"));
+                    IWebElement updateButton = basePage.WaitUntilClickable(By.XPath("//div[@data-tab='second']//input[@value='Update']"));
                     updateButton.Click();
 
-                    var updatedRows = WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr")).ToList();
+                    var updatedRows = basePage.WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr")).ToList();
                     IWebElement updatedSkill = rows[i].FindElement(By.XPath("./td[1]"));
                     return updatedSkill.Text;
                 }
@@ -233,10 +236,10 @@ namespace Reqnroll_ProjectMars.Pages
 
         }
 
-        public string deleteSkill(string oldSkillName)
+        public string DeleteSkill(string oldSkillName)
         {
 
-            var rowsCollection = WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr"));
+            var rowsCollection = basePage.WaitUntilVisibleAll(By.XPath("//div[@data-tab='second']//table/tbody/tr"));
             var rows = rowsCollection.ToList();
 
             for (int i = 0; i < rows.Count; i++)
@@ -254,9 +257,9 @@ namespace Reqnroll_ProjectMars.Pages
         }
 
 
-        public string checkDuplicateSkill(string name, string level)
+        public string CheckDuplicateSkill(string name, string level)
         {
-            return checkDuplicateInfo(name, level, By.XPath("//div[@data-tab='second']//table/tbody/tr"));
+            return CheckDuplicateInfo(name, level, By.XPath("//div[@data-tab='second']//table/tbody/tr"));
         }
 
 
@@ -264,9 +267,9 @@ namespace Reqnroll_ProjectMars.Pages
         //Methods common for both languages and skills tab
 
 
-        public string checkDuplicateInfo(string name, string level, By rowLocator)
+        public string CheckDuplicateInfo(string name, string level, By rowLocator)
         {
-            var rowsCollection = WaitUntilVisibleAll(rowLocator);
+            var rowsCollection = basePage.WaitUntilVisibleAll(rowLocator);
 
             var rows = rowsCollection.ToList();
 
@@ -289,14 +292,14 @@ namespace Reqnroll_ProjectMars.Pages
             return "Original";
 
         }
-        public string retreiveMessage()
+        public string RetreiveMessage()
         {
-            IWebElement displayedMessage = WaitUntilVisible(By.XPath("//div[@class='ns-box-inner']"));
+            IWebElement displayedMessage = basePage.WaitUntilVisible(By.XPath("//div[@class='ns-box-inner']"));
             return displayedMessage.Text;
         }
-        public string verifyDetailsDisplayed(int columnIndex)
+        public string VerifyDetailsDisplayed(int columnIndex)
         {
-            IWebElement lastRow = WaitUntilVisible(By.XPath($"//table/tbody[last()]/tr[last()]/td[{columnIndex}]"));
+            IWebElement lastRow = basePage.WaitUntilVisible(By.XPath($"//table/tbody[last()]/tr[last()]/td[{columnIndex}]"));
             return lastRow.Text;
 
         }
@@ -313,17 +316,17 @@ namespace Reqnroll_ProjectMars.Pages
 
         public void ActivateLanguagesTab()
         {
-            var languagesTab = driver.FindElement(By.XPath("//a[@data-tab='first']"));
+            var languagesTab = newDriver.FindElement(By.XPath("//a[@data-tab='first']"));
             languagesTab.Click();
 
-            WaitUntilVisible(By.XPath("//div[@data-tab='first' and contains(@class,'active')]"));
+            basePage.WaitUntilVisible(By.XPath("//div[@data-tab='first' and contains(@class,'active')]"));
         }
 
         public void WaitUntilLanguagesTabVisible()
         {
             try
             {
-                IWebElement languageTab = WaitUntilVisible(By.XPath("//a[contains(text(), 'Languages')]"));
+                IWebElement languageTab = basePage.WaitUntilVisible(By.XPath("//a[contains(text(), 'Languages')]"));
                 languageTab.Click();
 
 
@@ -344,17 +347,17 @@ namespace Reqnroll_ProjectMars.Pages
         }
         public void ActivateSkillsTab()
         {
-            var skillsTab = driver.FindElement(By.XPath("//a[@data-tab='second']"));
+            var skillsTab = newDriver.FindElement(By.XPath("//a[@data-tab='second']"));
             skillsTab.Click();
 
-            WaitUntilVisible(By.XPath("//div[@data-tab='second' and contains(@class,'active')]"));
+            basePage.WaitUntilVisible(By.XPath("//div[@data-tab='second' and contains(@class,'active')]"));
      
         }
         public void WaitUntilSkillsTabContentVisible()
         {
             try
             {
-                WaitUntilVisible(By.XPath("//div[@data-tab='second' and contains(@class,'active')]"));
+                basePage.WaitUntilVisible(By.XPath("//div[@data-tab='second' and contains(@class,'active')]"));
 
             }
             catch (WebDriverTimeoutException)
@@ -370,7 +373,7 @@ namespace Reqnroll_ProjectMars.Pages
 
             try
             {
-                rows = driver.FindElements(tableLocator);
+                rows = newDriver.FindElements(tableLocator);
             }
             catch (NoSuchElementException)
             {
@@ -386,8 +389,8 @@ namespace Reqnroll_ProjectMars.Pages
 
                     try
                     {
-                        var message = WaitUntilVisible(By.CssSelector(".ns-box-inner"), 5);
-                        var closeMessage = driver.FindElement(By.CssSelector(".ns-close"));
+                        var message = basePage.WaitUntilVisible(By.CssSelector(".ns-box-inner"), 5);
+                        var closeMessage = newDriver.FindElement(By.CssSelector(".ns-close"));
                         closeMessage.Click();
                     }
                     catch (WebDriverTimeoutException)
@@ -395,12 +398,12 @@ namespace Reqnroll_ProjectMars.Pages
                         
                     }
 
-                    rows = driver.FindElements(tableLocator);
+                    rows = newDriver.FindElements(tableLocator);
                 }
                 catch (StaleElementReferenceException)
                 {
                     
-                    rows = driver.FindElements(tableLocator);
+                    rows = newDriver.FindElements(tableLocator);
                 }
             }
         }

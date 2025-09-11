@@ -20,18 +20,18 @@ namespace Reqnroll_ProjectMars.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Profile Page Scenarios")]
-    public partial class ProfilePageScenariosFeature
+    [NUnit.Framework.DescriptionAttribute("LanguageScenarios")]
+    public partial class LanguageScenariosFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Profile Page Scenarios", "This feature file contains scenarios related to the user profile pafe where a use" +
-                "r can manage their languages and skills.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "LanguageScenarios", "This feature file contains scenarios related to the profile page where a user can" +
+                " manage their languages present in their profile.", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
-#line 1 "ProfileScenarios.feature"
+#line 1 "LanguageScenarios.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
@@ -84,10 +84,13 @@ namespace Reqnroll_ProjectMars.Features
         
         public virtual async System.Threading.Tasks.Task FeatureBackgroundAsync()
         {
-#line 5
-#line hidden
 #line 6
+#line hidden
+#line 7
     await testRunner.GivenAsync("I am logged in with valid credentials \"test@gmail.com\" and \"test1234\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
+#line 8
+ await testRunner.AndAsync("I am on the Languages tab on the user profile", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
         }
         
@@ -112,7 +115,7 @@ namespace Reqnroll_ProjectMars.Features
             argumentsOfScenario.Add("Level", level);
             argumentsOfScenario.Add("Visibility", visibility);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add four new languages with different language levels", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -122,17 +125,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 10
+#line 12
  await testRunner.WhenAsync(string.Format("I add a new language \"{0}\" with level \"{1}\"", language, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 13
  await testRunner.ThenAsync(string.Format("I should see \"{0}\" displayed with the corresponding level \"{1}\" in the languages " +
                             "tab", language, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 12
+#line 14
  await testRunner.AndAsync(string.Format("the ADD NEW button should {0} after adding language", visibility), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -148,7 +151,7 @@ await this.FeatureBackgroundAsync();
                     "ValidScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User can update a language after adding multiple languages", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -158,7 +161,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
@@ -173,14 +176,14 @@ await this.FeatureBackgroundAsync();
                 table1.AddRow(new string[] {
                             "German",
                             "Native/Bilingual"});
-#line 23
+#line 25
  await testRunner.GivenAsync("the following languages exist in the profile:", ((string)(null)), table1, "Given ");
 #line hidden
-#line 29
+#line 31
   await testRunner.WhenAsync("I click the update icon near the language \"French\" and update it to \"FrenchNew\" w" +
                         "ith level \"Fluent\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 32
   await testRunner.ThenAsync("I should see the language updated as \"FrenchNew\" with a confirmation message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -196,7 +199,7 @@ await this.FeatureBackgroundAsync();
                     "ValidScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User able to delete any language displayed in profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -206,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
@@ -221,13 +224,13 @@ await this.FeatureBackgroundAsync();
                 table2.AddRow(new string[] {
                             "German",
                             "Native/Bilingual"});
-#line 35
+#line 37
    await testRunner.GivenAsync("the following languages exist in the profile:", ((string)(null)), table2, "Given ");
 #line hidden
-#line 41
+#line 43
   await testRunner.WhenAsync("I click the delete icon near the language level of \"French\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 44
   await testRunner.ThenAsync("language \"French\" should be deleted with confirmation message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -243,7 +246,7 @@ await this.FeatureBackgroundAsync();
                     "InvalidScenario"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Error message displayed while adding an already existing language", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 45
+#line 47
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -253,7 +256,7 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
                 global::Reqnroll.Table table3 = new global::Reqnroll.Table(new string[] {
@@ -268,13 +271,13 @@ await this.FeatureBackgroundAsync();
                 table3.AddRow(new string[] {
                             "German",
                             "Native/Bilingual"});
-#line 46
+#line 48
     await testRunner.GivenAsync("the following languages exist in the profile:", ((string)(null)), table3, "Given ");
 #line hidden
-#line 52
+#line 54
     await testRunner.WhenAsync("I try to add an already existing language \"French\" with level \"Fluent\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 53
+#line 55
     await testRunner.ThenAsync("error should be displayed on the profile avoiding addition", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -300,7 +303,7 @@ await this.FeatureBackgroundAsync();
             argumentsOfScenario.Add("LanguageName", languageName);
             argumentsOfScenario.Add("Level", level);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Error message displayed when I leave language name or level field blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 56
+#line 58
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -310,16 +313,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 57
- await testRunner.GivenAsync("I am on the languages tab of the profile", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 58
+#line 59
  await testRunner.WhenAsync(string.Format("I leave {0} or {1} field blank while adding", languageName, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 59
+#line 60
  await testRunner.ThenAsync(string.Format("error should be displayed to enter details {0} and {1}", languageName, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -347,7 +347,7 @@ await this.FeatureBackgroundAsync();
             argumentsOfScenario.Add("Level", level);
             argumentsOfScenario.Add("Visibility", visibility);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User able to add languages with symbols and long characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 69
+#line 70
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -357,291 +357,18 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
+#line 6
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 70
+#line 71
  await testRunner.WhenAsync(string.Format("I add a new language \"{0}\" with level \"{1}\"", language, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 71
+#line 72
  await testRunner.ThenAsync(string.Format("I should see \"{0}\" displayed with the corresponding level \"{1}\" in the languages " +
                             "tab", language, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 72
+#line 73
  await testRunner.AndAsync(string.Format("the ADD NEW button should {0} after adding language", visibility), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add new skills with different skill levels")]
-        [NUnit.Framework.CategoryAttribute("ValidScenario")]
-        [NUnit.Framework.TestCaseAttribute("Programming", "Beginner", null)]
-        [NUnit.Framework.TestCaseAttribute("Automation", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("Administration", "Expert", null)]
-        public async System.Threading.Tasks.Task AddNewSkillsWithDifferentSkillLevels(string skill, string level, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "ValidScenario"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Skill", skill);
-            argumentsOfScenario.Add("Level", level);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Add new skills with different skill levels", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 86
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 87
- await testRunner.WhenAsync(string.Format("I add a new skill \"{0}\" with level \"{1}\"", skill, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 88
- await testRunner.ThenAsync(string.Format("I should see \"{0}\" displayed with the corresponding level \"{1}\" in the skills tab" +
-                            "", skill, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User able to update skill name and level of any skills displayed in profile")]
-        [NUnit.Framework.CategoryAttribute("ValidScenario")]
-        public async System.Threading.Tasks.Task UserAbleToUpdateSkillNameAndLevelOfAnySkillsDisplayedInProfile()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "ValidScenario"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User able to update skill name and level of any skills displayed in profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 100
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-                global::Reqnroll.Table table4 = new global::Reqnroll.Table(new string[] {
-                            "Skill",
-                            "Level"});
-                table4.AddRow(new string[] {
-                            "Programming",
-                            "Beginner"});
-                table4.AddRow(new string[] {
-                            "Automation",
-                            "Intermediate"});
-                table4.AddRow(new string[] {
-                            "Administration",
-                            "Expert"});
-#line 101
- await testRunner.GivenAsync("the following skills exist in the profile:", ((string)(null)), table4, "Given ");
-#line hidden
-#line 107
-  await testRunner.WhenAsync("I click the update icon near the skill \"Automation\" and update level to \"UpdatedA" +
-                        "utomation\" with level \"Expert\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 108
-  await testRunner.ThenAsync("I should see the new skill \"UpdatedAutomation\" with a confirmation message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User able to delete any skill displayed in profile")]
-        [NUnit.Framework.CategoryAttribute("ValidScenario")]
-        public async System.Threading.Tasks.Task UserAbleToDeleteAnySkillDisplayedInProfile()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "ValidScenario"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User able to delete any skill displayed in profile", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 112
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-                global::Reqnroll.Table table5 = new global::Reqnroll.Table(new string[] {
-                            "Skill",
-                            "Level"});
-                table5.AddRow(new string[] {
-                            "Programming",
-                            "Beginner"});
-                table5.AddRow(new string[] {
-                            "Automation",
-                            "Intermediate"});
-                table5.AddRow(new string[] {
-                            "Administration",
-                            "Expert"});
-#line 113
- await testRunner.GivenAsync("the following skills exist in the profile:", ((string)(null)), table5, "Given ");
-#line hidden
-#line 119
-  await testRunner.WhenAsync("I click the delete icon near the skill \"Automation\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 120
-  await testRunner.ThenAsync("skill \"Automation\" should be deleted with confirmation message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Error message displayed while adding already existing skill")]
-        [NUnit.Framework.CategoryAttribute("InvalidScenario")]
-        public async System.Threading.Tasks.Task ErrorMessageDisplayedWhileAddingAlreadyExistingSkill()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "InvalidScenario"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Error message displayed while adding already existing skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 124
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-                global::Reqnroll.Table table6 = new global::Reqnroll.Table(new string[] {
-                            "Skill",
-                            "Level"});
-                table6.AddRow(new string[] {
-                            "Programming",
-                            "Beginner"});
-                table6.AddRow(new string[] {
-                            "Automation",
-                            "Intermediate"});
-                table6.AddRow(new string[] {
-                            "Administration",
-                            "Expert"});
-#line 125
- await testRunner.GivenAsync("the following skills exist in the profile:", ((string)(null)), table6, "Given ");
-#line hidden
-#line 131
-    await testRunner.WhenAsync("I try to add an already existing skill \"Programming\" with level \"Expert\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 132
-    await testRunner.ThenAsync("error should be displayed on the skill tab of profile", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Error message displayed when I leave skill name or level field blank")]
-        [NUnit.Framework.CategoryAttribute("InvalidScenario")]
-        [NUnit.Framework.TestCaseAttribute("Testing", "", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Expert", null)]
-        [NUnit.Framework.TestCaseAttribute("", "", null)]
-        public async System.Threading.Tasks.Task ErrorMessageDisplayedWhenILeaveSkillNameOrLevelFieldBlank(string skillName, string level, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "InvalidScenario"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("SkillName", skillName);
-            argumentsOfScenario.Add("Level", level);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Error message displayed when I leave skill name or level field blank", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 135
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 136
-  await testRunner.GivenAsync("I am on the skills tab of the profile", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 137
-  await testRunner.WhenAsync(string.Format("I leave skill details {0} or {1} fields blank while adding", skillName, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 138
-  await testRunner.ThenAsync(string.Format("error should be displayed to enter skill details {0} and {1}", skillName, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("User able to add skills with symbols and long characters")]
-        [NUnit.Framework.CategoryAttribute("DestructiveScenario")]
-        [NUnit.Framework.TestCaseAttribute("abcdgbahdjbsjd1111111jdkkkkkkkkkkkkkkkkkkkkkk", "Beginner", null)]
-        [NUnit.Framework.TestCaseAttribute("#$%^&!*@#@#", "Intermediate", null)]
-        [NUnit.Framework.TestCaseAttribute("漢字漢字漢字漢字漢字漢字", "Expert", null)]
-        public async System.Threading.Tasks.Task UserAbleToAddSkillsWithSymbolsAndLongCharacters(string skill, string level, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "DestructiveScenario"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Skill", skill);
-            argumentsOfScenario.Add("Level", level);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User able to add skills with symbols and long characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 147
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 5
-await this.FeatureBackgroundAsync();
-#line hidden
-#line 148
- await testRunner.WhenAsync(string.Format("I add a new skill \"{0}\" with level \"{1}\"", skill, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 149
- await testRunner.ThenAsync(string.Format("I should see \"{0}\" displayed with the corresponding level \"{1}\" in the skills tab" +
-                            "", skill, level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

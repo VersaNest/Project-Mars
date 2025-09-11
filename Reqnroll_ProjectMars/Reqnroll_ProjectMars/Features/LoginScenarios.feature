@@ -56,7 +56,7 @@ Scenario: User able to register new account
 
 	Examples:
   | Email             | Password | FirstName | LastName |
-  | johnsam@email.com | john1234 | John      | Smith    |
+  | davidjohn@email.com | john1234 | John      | Smith    |
  
 
 
