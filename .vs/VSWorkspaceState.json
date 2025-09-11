@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\qa-dotnet-cucumber",
+    "\\qa-dotnet-cucumber\\Config",
+    "\\qa-dotnet-cucumber\\Features",
+    "\\qa-dotnet-cucumber\\Hooks",
+    "\\qa-dotnet-cucumber\\Pages",
+    "\\qa-dotnet-cucumber\\Steps",
+    "\\qa-dotnet-cucumber\\Tests"
+  ],
+  "SelectedNode": "\\qa-dotnet-cucumber\\qa-dotnet-cucumber.csproj",
+  "PreviewInSolutionExplorer": false
+}
