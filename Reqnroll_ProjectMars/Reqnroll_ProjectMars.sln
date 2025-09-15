@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reqnroll_ProjectMars", "Reqnroll_ProjectMars\Reqnroll_ProjectMars.csproj", "{182AF134-FCB1-4A78-AD36-83E75990B346}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{182AF134-FCB1-4A78-AD36-83E75990B346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182AF134-FCB1-4A78-AD36-83E75990B346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182AF134-FCB1-4A78-AD36-83E75990B346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182AF134-FCB1-4A78-AD36-83E75990B346}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D4622D7-6B11-439A-9CC9-4B140CB5CD44}
+	EndGlobalSection
+EndGlobal
