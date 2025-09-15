@@ -20,7 +20,7 @@ Only authorised users can access the application with valid Email and Password.
 ---
 
 ## Project Structure
-
+`````
 Reqnroll_ProjectMars/
 ├── Features/ # Feature files for login and profile pages
 ├── Hooks/ # Hooks for setup, teardown, and clean up after each test execution
@@ -28,7 +28,7 @@ Reqnroll_ProjectMars/
 ├── StepDefinitions/ # Step definition classes for the feature files
 ├── Utilities/ # Common wait methods (Base Page) and configuration reader
 └── appsettings.json
-
+`````
 ## Instructions for Running the Tests
 1. Clone the project repository: `http://git.mvp.studio/qa-examples/ta_mars_docker.git` and follow the steps given.
 2. Clone this repository.
